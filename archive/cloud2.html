@@ -1,0 +1,56 @@
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.layout.cloud.js"></script>
+<script>
+  var filename = 'syria.csv';
+
+  d3.csv(filename, function(data){
+    data = data.splice(0, 99);
+
+    var width = 1200,
+    height = 600,
+    fill = d3.scale.category20(),
+    maxcount = d3.max(data, function(d){ return d.count; } ),
+    wordcount = data.map(function(d) { return {text: d.word, size:
+    d.count / maxcount * 10}; });
+
+    d3.layout.cloud().size([width, height])
+    .words(wordcount)
+    .padding(5)
+    .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    .font("Impact")
+    .fontSize(function(d) { return 10; })
+    .on("end", draw)
+    .start();
+
+    function draw(words) {
+      d3.select("body").append("svg")
+      .attr({
+        "width": width,
+        "height": height
+      })
+      .append("g")
+      .attr("transform", "translate(" + [ width >> 1, height >> 1 ] +
+      ")")
+      .selectAll("text")
+      .data(words)
+      .enter()
+      .append("text")
+      .style({
+        "font-size": function(d) { return +d.count + "px"; },
+        "font-family": "Impact",
+        "fill": function(d, i) { return fill(i); }
+      })
+      .attr({
+        "text-anchor": "middle",
+        "transform": function(d) { return "translate(" + [d.x, d.y] +
+      ")rotate(" + d.rotate + ")"; }
+      })
+      .text(function(d) { return d.text; });
+    }
+  });
+</script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="./d3.layout.cloud.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>

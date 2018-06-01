@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title> Justice System Wordcloud </title>
+  <link rel='stylesheet' href='/static/mypage.css' />
+  <style>
+  span{z-index:10; position:relative}
+  div{z-index:1; position:relative}
+
+    </style>
+
+  </style>
+  <body>
+    <ul>
+      <li><a href="/news.html">New York Times Topics Over Time</a></li>
+      <li><a href='/brexit.html'>Brexit Wordcloud</a></li>
+      <li><a href='/trump.html'>Donald Trump Wordcloud</a></li>
+      <li><a href='/korea.html'>Korean Peninsula Wordcloud</a></li>
+      <li><a href='/medicine.html'>Medical News Wordcloud</a></li>
+      <li><a href='/briefing.html'>NYT News Briefings Wordcloud</a></li>
+      <li><a href='/olympics.html'>Olympics Wordcloud</a></li>
+      <li><a href='/sports.html'>Sports Wordcloud</a></li>
+      <li><a href='/syria.html'>Syria Wordcloud</a></li>
+      <li><a href='/election.html'>U.S. Election Wordcloud</a></li>
+    </ul>
+  </head>
+  <body>
+      <nav id="nav" class="navbar navbar-default" role="navigation"></nav>
+      <div class="container">
+          <h2>Justice System 100 Most Frequent Words</h2>
+
+              <br>
+          <div id="word-cloud"></div>
+      </div>
+
+      <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+      <script type="text/javascript" src="/static/d3.layout.cloud.js"></script>
+      <script type="text/javascript" src="/static/justice.js"></script>
+  </body>
+</html>

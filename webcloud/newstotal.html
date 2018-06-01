@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title> New York Times Topics Over Time </title>
+  <link rel='stylesheet' href='/static/mypage.css' />
+  <style>
+
+span{z-index:10; position:relative}
+div{z-index:1; position:relative}
+
+  </style>
+
+</style>
+<body>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href='/brexit.html'>Brexit Wordcloud</a></li>
+    <li><a href='/trump.html'>Donald Trump Wordcloud</a></li>
+    <li><a href='/justice.html'>Justice System Wordcloud</a></li>
+    <li><a href='/korea.html'>Korean Peninsula Wordcloud</a></li>
+    <li><a href='/medicine.html'>Medical News Wordcloud</a></li>
+    <li><a href='/briefing.html'>NYT News Briefings Wordcloud</a></li>
+    <li><a href='/olympics.html'>Olympics Wordcloud</a></li>
+    <li><a href='/sports.html'>Sports Wordcloud</a></li>
+    <li><a href='/syria.html'>Syria Wordcloud</a></li>
+    <li><a href='/election.html'>U.S. Election Wordcloud</a></li>
+  </ul>
+<h1> Welcome to my exploration of a New York Times news dataset</h1>
+<h3>
+
+<div>
+<iframe width="1200" height="800" frameborder="0" scrolling="no" src="//plot.ly/~ttrumbly/3.embed"></iframe>
+<script type="text/javascript"charset="utf-8">
+    d3.text("table.csv", function(data) {
+        var parsedCSV = d3.csv.parseRows(data);
+
+        var container = d3.select("body")
+            .append("table")
+
+            .selectAll("tr")
+                .data(parsedCSV).enter()
+                .append("tr")
+
+            .selectAll("td")
+                .data(function(d) { return d; }).enter()
+                .append("td")
+                .text(function(d) { return d; });
+    });
+</div>
+
+</h3>
+</body>
